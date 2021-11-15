@@ -1,4 +1,5 @@
 $(function () {
+  // jQuery selector to perform the invocation of the function...
   let INDEX = 0;
   $("#chat-submit").click(function (e) {
     e.preventDefault();

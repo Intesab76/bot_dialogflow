@@ -12,8 +12,8 @@ run_with_ngrok(app)
 
 @app.route('/webhook', methods=['POST'])
 def detect_intent_with_parameters(project_id, session_id, query_params, language_code, user_input):
-    # data = request.get_json(silent=True)
-    # if data['queryResult']['queryText'] == 'pay '
+    data = request.get_json(silent=True)
+    # if data['queryResult']['queryText'] == 'pay  credit bill
     session_client = dialogflow.SessionsClient()
     session = session_client.session_path(project_id, session_id)
     text = user_input
@@ -22,6 +22,7 @@ def detect_intent_with_parameters(project_id, session_id, query_params, language
     query_input = dialogflow.types.QueryInput(text=text_input)
     response = session_client.detect_intent(
         session=session, query_input=query_input, query_params=query_params)
+    print(response)
     return response
 
 
