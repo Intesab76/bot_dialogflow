@@ -22,7 +22,9 @@ def detect_intent_with_parameters(project_id, session_id, query_params, language
     query_input = dialogflow.types.QueryInput(text=text_input)
     response = session_client.detect_intent(
         session=session, query_input=query_input, query_params=query_params)
+
     print(response)
+
     return response
 
 
